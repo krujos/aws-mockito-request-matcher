@@ -16,7 +16,7 @@ verify(ec2Client).deleteSnapshot(
 	awsRqst(r -> r.getSnapshotId().equals("test_snapshot")));
 ```
 
-or
+or this:
 
 
 ```
@@ -40,7 +40,7 @@ public void itShouldTerminateTheInstanceUponUnbind() {
 }
 ```
 
-or 
+could be this:  
 
 ```
 @Test
@@ -51,6 +51,24 @@ public void itShouldTerminateTheInstanceUponUnbind() {
 	verify(ec2Client).terminateInstances(
 		awsRqst(r -> r.getInstanceIds().get(0).equals("test_instance")));
 }
+```
+
+#Use it: 
+Use [JitPack](https://www.jitpack.io/#krujos/aws-mockito-request-matcher/) to add the matcher to your project. 
+
+````
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+````
+
+```
+	<dependency>
+	    <groupId>com.github.krujos</groupId>
+	    <artifactId>aws-mockito-request-matcher</artifactId>
+	    <version>v0.1</version>
+	</dependency>
 ```
 
 Special thanks to the folks at [Coveo](http://source.coveo.com/2014/10/01/java8-mockito/) for having implemented and written about this. 
