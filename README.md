@@ -4,14 +4,14 @@ A matcher that makes ```verify``` and ```when``` a little more readable when dea
 
 You could do this: 
 
-```
+```java
 verify(ec2Client).deleteSnapshot(
 	new DeleteSnapshotRequest().withSnapshotId("test_snapshot"));
 ```
 
 but this reads a little easier
 
-```
+```java
 verify(ec2Client).deleteSnapshot(
 	awsRqst(r -> r.getSnapshotId().equals("test_snapshot")));
 ```
@@ -19,7 +19,7 @@ verify(ec2Client).deleteSnapshot(
 or this:
 
 
-```
+```java
 @Test
 public void itShouldTerminateTheInstanceUponUnbind() {
 
@@ -40,9 +40,9 @@ public void itShouldTerminateTheInstanceUponUnbind() {
 }
 ```
 
-could be this:  
+could be:  
 
-```
+```java
 @Test
 public void itShouldTerminateTheInstanceUponUnbind() {
 
@@ -56,14 +56,14 @@ public void itShouldTerminateTheInstanceUponUnbind() {
 #Use it: 
 Use [JitPack](https://www.jitpack.io/#krujos/aws-mockito-request-matcher/) to add the matcher to your project. 
 
-````
+````xml
 	<repository>
 	    <id>jitpack.io</id>
 	    <url>https://jitpack.io</url>
 	</repository>
 ````
 
-```
+```xml
 	<dependency>
 	    <groupId>com.github.krujos</groupId>
 	    <artifactId>aws-mockito-request-matcher</artifactId>
