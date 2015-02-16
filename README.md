@@ -6,7 +6,7 @@ You could do this:
 
 ```
 verify(ec2Client).deleteSnapshot(
--		new DeleteSnapshotRequest().withSnapshotId("test_snapshot"));
+	new DeleteSnapshotRequest().withSnapshotId("test_snapshot"));
 ```
 
 but this reads a little easier
